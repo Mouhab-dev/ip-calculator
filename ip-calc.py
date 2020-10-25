@@ -3,18 +3,47 @@
     Follow me on Github: https://github.com/mouhab-dev
 """
 # Function to convert Decimal to Binary
-def dtb(n):  
+def dtb(n):
     return bin(n).replace("0b", "")
 
 print("Welcome to IP Calculator v1.0 by Mouhab-dev")
+print("Project Repo on Github: https://github.com/mouhab-dev/ip-calculator")
 print("Find me on Github: https://github.com/mouhab-dev\n")
 
 # Ask user for ip address and then split it based on the '.' and put it in a list
 ip = list(map(int,input("Please, Enter an IP Address: ").split('.')))
+
+# error handling for ip address
+for i in ip:
+    if i > 255:
+        raise ValueError("Sorry, This is not a valid IP Address")
+        exit(1)
+    if not type(ip) is int:
+        raise TypeError("Only integers are allowed")
+        exit(2)
+
+if len(ip) > 4 :
+    raise Exception("IP Address is not valid")
+    exit(3)
+
 # Ask user for subnet mask and then split it based on the '.' and put it in a list
 subnet = list(map(int,input("Please, Enter Subnet Mask: ").split('.')))
 
-full_bin_subnet=""
+# error handling for subnet
+for j in subnet:
+    if j > 255:
+        raise ValueError("Sorry, This is not a valid Subnet Mask")
+        exit(11)
+    if not type(ip) is int:
+        raise TypeError("Only integers are allowed")
+        exit(12)
+
+if len(subnet) > 4 :
+    raise Exception("Subnet Mask is not valid")
+    exit(13)
+
+# full_bin_subnet=""
+
 subnet_ones=0 # count no of ones in subnet mask
 t_no_hosts=0 # calculate total number of hosts
 
@@ -22,6 +51,7 @@ network_id=[]
 broadcast_address=[0,0,0,0]
 
 for i in range(4):
+
     # count the number of ones in the subnet mask
     subnet_ones = subnet_ones + len(dtb(subnet[i]).strip('0'))
     
@@ -41,6 +71,9 @@ for i in range(4):
         broadcast_address[i] = network_id[i]
     else:
         broadcast_address[i] = 255 - subnet[i] + network_id[i]
+
+
+# print(full_bin_subnet)
 
 print("--------------------------------------------")
 
