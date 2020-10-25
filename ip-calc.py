@@ -15,7 +15,6 @@ ip = list(map(int,input("Please, Enter an IP Address: ").split('.')))
 subnet = list(map(int,input("Please, Enter Subnet Mask: ").split('.')))
 
 full_bin_subnet=""
-
 subnet_ones=0 # count no of ones in subnet mask
 t_no_hosts=0 # calculate total number of hosts
 
@@ -23,7 +22,6 @@ network_id=[]
 broadcast_address=[0,0,0,0]
 
 for i in range(4):
-
     # count the number of ones in the subnet mask
     subnet_ones = subnet_ones + len(dtb(subnet[i]).strip('0'))
     
@@ -43,9 +41,6 @@ for i in range(4):
         broadcast_address[i] = network_id[i]
     else:
         broadcast_address[i] = 255 - subnet[i] + network_id[i]
-
-
-# print(full_bin_subnet)
 
 print("--------------------------------------------")
 
