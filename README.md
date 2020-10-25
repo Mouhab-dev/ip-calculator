@@ -20,6 +20,7 @@ Please, Enter Subnet Mask: 255.255.128.0
 ```
 C:\Users\'your username'> python ip-calc.py
 Welcome to IP Calculator v1.0 by Mouhab-dev
+Project Repo on Github: https://github.com/mouhab-dev/ip-calculator
 Find me on Github: https://github.com/mouhab-dev
 
 Please, Enter an IP Address: 10.15.198.16
