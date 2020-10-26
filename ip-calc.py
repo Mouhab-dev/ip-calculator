@@ -22,7 +22,7 @@ for i in ip:
     if i > 255:
         raise ValueError("Sorry, This is not a valid IP Address")
 
-if len(ip) > 4 :
+if len(ip) != 4 :
     raise Exception("IP Address is not valid")
 
 # Ask user for subnet mask and then split it based on the '.' and put it in a list
@@ -37,7 +37,7 @@ for j in subnet:
     if j > 255:
         raise ValueError("Sorry, This is not a valid Subnet Mask")
 
-if len(subnet) > 4 :
+if len(subnet) != 4 :
     raise Exception("Subnet Mask is not valid")
 
 # full_bin_subnet=""
