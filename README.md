@@ -16,6 +16,7 @@ Given any valid IP address and subnet mask, use this calculator to determine the
   <li> Total number of hosts can be supported.
   </ul>
 - The ability to handle various errors like invalid ip address or subnetmask.
+- The ability to copy the results.
 
 ## Usage
 There are two versions of this calculator one uses CLI(Command Line Interface) and the other is a GUI (Graphical User Interface).
