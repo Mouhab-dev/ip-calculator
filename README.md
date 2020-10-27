@@ -56,5 +56,4 @@ Total number of Hosts = 32766
 ```
 
 ### GUI Version
-
-<img href="https://i.imgur.com/mqTSm9F.gif" alt="GUI gif">
+![IP Calculator Preview](https://i.imgur.com/mqTSm9F.gif)
