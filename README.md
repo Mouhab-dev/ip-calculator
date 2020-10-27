@@ -22,8 +22,8 @@ Given any valid IP address and subnet mask, use this calculator to determine the
 There are two versions of this calculator one uses CLI(Command Line Interface) and the other is a GUI (Graphical User Interface).
 
 ### CLI Version
-download only the python script
-Run the script by executing the following command
+- Download only the python script
+- Run the script by executing the following command
 ```
 python ip-calc.py
 ```
@@ -34,7 +34,7 @@ Please, Enter an Ip Address: 10.15.198.16
 Please, Enter Subnet Mask: 255.255.128.0
 ```
 ### GUI Version
-download only the exe file (ip-calc.exe) and run.
+- Download only the exe file (ip-calc.exe) and run.
 
 ## Test
 ### CLI Version
