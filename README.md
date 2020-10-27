@@ -56,3 +56,5 @@ Total number of Hosts = 32766
 ```
 
 ### GUI Version
+
+<img href="https://imgur.com/a/ci8lXRt" alt="GUI gif">
