@@ -1,10 +1,14 @@
 # IP Calculator
-IP Calculator is a Python Script to analyse a network given an ip address and subnet mask.
+IP Calculator is a Python Program to analyse a network given an ip address and subnet mask.
 
 ## Description
 Given any valid IP address and subnet mask, use this calculator to determine the network ID, the first and last hosts in the network, and the broadcast address and number of hosts this network can provide.
 
 ## Usage
+There are two versions of this calculator one uses CLI(Command Line Interface) and the other is a GUI (Graphical User Interface).
+
+### CLI Version
+download only the python script
 Run the script by executing the following command
 ```
 python ip-calc.py
@@ -15,8 +19,11 @@ Then, Enter ip address and subnet mask when promoted
 Please, Enter an Ip Address: 10.15.198.16
 Please, Enter Subnet Mask: 255.255.128.0
 ```
+### GUI Version
+download only the exe file (ip-calc.exe) and run.
 
 ## Test
+### CLI Version
 ```
 C:\Users\'your username'> python ip-calc.py
 Welcome to IP Calculator v1.0 by Mouhab-dev
@@ -33,3 +40,5 @@ Last Host Address: 10.15.255.254
 Broadcast Address: 10.15.255.255
 Total number of Hosts = 32766
 ```
+
+### GUI Version
