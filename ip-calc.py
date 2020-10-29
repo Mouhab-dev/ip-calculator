@@ -26,7 +26,7 @@ def cidr_to_subnet(CIDR):
             subnet.append(0)
     return subnet
 
-print("Welcome to IP Calculator v1.0 by Mouhab-dev")
+print("Welcome to IP Calculator v1.5 by Mouhab-dev")
 print("Project Repo on Github: https://github.com/mouhab-dev/ip-calculator")
 print("Find me on Github: https://github.com/mouhab-dev\n")
 

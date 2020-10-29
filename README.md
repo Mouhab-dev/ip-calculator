@@ -4,6 +4,11 @@ IP Calculator is a Python Program to analyse a network given an ip address and s
 ## Description
 Given any valid IP address and subnet mask, use this calculator to determine the network ID, the first and last hosts in the network, and the broadcast address and number of hosts this network can provide.
 
+## Updates
+Version 1.5:
+- Added Support for CIDR Notation.
+- Handled more errors for subnet like the first digit being less than 255.
+
 ## Features
 - The ability to analyse a given ip address and the subnet mask.
 - The Network analysis result contains:
