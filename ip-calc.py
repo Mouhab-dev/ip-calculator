@@ -10,6 +10,22 @@ CEND = '\033[0m'
 def dtb(n):
     return format(n,'08b')
 
+# Function to convert from CIDR Notation to Subnet mask
+def cidr_to_subnet(CIDR):
+    counter = 0
+    subnet=[]
+    while (CIDR>8):
+        CIDR = CIDR-8
+        counter +=1
+    for i in range(4):
+        if i < counter:
+            subnet.append(255)
+        elif i == counter:
+            subnet.append(256-pow(2,(8-CIDR)))
+        else:
+            subnet.append(0)
+    return subnet
+
 print("Welcome to IP Calculator v1.0 by Mouhab-dev")
 print("Project Repo on Github: https://github.com/mouhab-dev/ip-calculator")
 print("Find me on Github: https://github.com/mouhab-dev\n")
@@ -51,15 +67,38 @@ subnet=[] # List to store subnet mask
 check_subnet=True # Variable to manage loop over subnet mask
 while(check_subnet):
     try:
-        # Ask user for subnet mask and then split it based on the '.' and put it in a list
-        subnet = list(map(int,input("Please, Enter Subnet Mask: ").split('.')))
-        check_subnet=False
-        # error handling for subnet
+        # Ask user for subnet mask with CIDR or full subnet mask
+        CIDR=input("Please, Enter Subnet Mask: ")
+        # CIDR Notation code
+        if CIDR[0] == '/':
+            CIDR=int(CIDR[1:])
+            # if CIDR not in range (8-30) raise an error invalid subnet mask
+            if not CIDR in range(8,31):
+                print(CRED + "Invalid shorthand notation. Must be in the range of 8-30." + CEND)
+                check_subnet=True
+                continue
+            else:
+                # else send cidr to the conversion fn to obtain full subnet mask
+                subnet=cidr_to_subnet(CIDR)
+                # set check_subnet to false to exit while loop
+                check_subnet=False
+        else:
+            # Ask user for subnet mask and then split it based on the '.' and put it in a list
+            subnet = list(map(int,CIDR.split('.')))
+            # check if the first value not equal 255
+            if subnet[0] != 255:
+                print(CRED + "Invalid subnet mask. The lowest allowed mask must be 255.0.0.0" + CEND)
+                check_subnet=True
+                continue
+            # set check_subnet to false to exit while loop
+            check_subnet=False
+        # Check if user has inputted the full length of the subnet mask
         if len(subnet) != 4:
             print(CRED + "Error: Subnet Mask supported format X.X.X.X" + CEND)
             check_subnet=True
             continue
-        for j in subnet:
+        # check if the rest of the digits excceds 255 skip the first digit we have already checked above
+        for j in subnet[1:] :
             # Check if the digits exceeds 255
             if j > 255:
                 print(CRED + "Error: Subnet Mask Range: (0-255)" + CEND)
@@ -84,8 +123,6 @@ while(check_subnet):
         check_subnet=True
         continue
 
-# full_bin_subnet=""
-
 subnet_ones=0 # count no of ones in subnet mask
 t_no_hosts=0 # calculate total number of hosts
 network_id=[] # list to store network id
@@ -98,14 +135,6 @@ for i in range(4):
     
     # perform a logical and operation between ip and subnet mask to get the network id
     network_id.append(int(ip[i]) & int(subnet[i]))
-    
-    # Convert Subnet Mask to (32) binary digits
-    '''
-    if dtb(subnet[i]) == "0":
-        full_bin_subnet = full_bin_subnet + dtb(subnet[i])*8
-    else:
-        full_bin_subnet = full_bin_subnet + dtb(subnet[i])
-    '''
 
     # Calculate Broadcast Address
     if subnet[i] == 255 :
